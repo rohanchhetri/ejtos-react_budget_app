@@ -82,6 +82,12 @@ export const AppReducer = (state, action) => {
           ...state,
         };
       }
+      if (action.payload > 20000) {
+        alert("Maximum budget value is 20000");
+        return {
+          ...state,
+        };
+      }
       return {
         ...state,
         budget: action.payload,
@@ -91,7 +97,6 @@ export const AppReducer = (state, action) => {
       return {
         ...state,
         currency: action.payload,
-        // currencyText: currency.text,
         currencySymbol: currencySymbol,
       };
     default:
@@ -106,7 +111,7 @@ const initialState = {
     { id: "Marketing", name: "Marketing", cost: 50 },
     { id: "Finance", name: "Finance", cost: 300 },
     { id: "Sales", name: "Sales", cost: 70 },
-    { id: "Human Resource", name: "Human Resource", cost: 40 },
+    { id: "Human Resource", name: "HR", cost: 40 },
     { id: "IT", name: "IT", cost: 500 },
   ],
   currency: "Pound",
